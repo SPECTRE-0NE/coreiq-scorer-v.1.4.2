@@ -394,7 +394,7 @@ function RootApp({ session }) {
     finally { setLoading(false) }
   })() }, [session?.user?.id])
 
-  useEffect(() => { if (!selectedId and audits.length) setSelectedId(audits[0].id); }, [audits.length, selectedId]);
+  useEffect(() => { if (!selectedId && audits.length) setSelectedId(audits[0].id); }, [audits.length, selectedId]);
   const selectedAudit = useMemo(() => audits.find((a) => a.id === selectedId) || null, [audits, selectedId]);
   const scores = useMemo(() => (selectedAudit ? computeScores(selectedAudit) : { perFunction: {}, perComponent: [0, 0, 0, 0], overall: 0 }), [selectedAudit]);
 
